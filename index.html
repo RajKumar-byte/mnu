@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GNA University - North Mess Menu</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      background-color: #8b0000;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #555;
+    }
+    
+    .days-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    
+    .day-btn {
+      padding: 10px 20px;
+      background-color: #e0e0e0;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .day-btn:hover {
+      background-color: #d0d0d0;
+    }
+    
+    .day-btn.active {
+      background-color: #8b0000;
+      color: white;
+    }
+    
+    .menu-container {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .menu-day {
+      display: none;
+    }
+    
+    .menu-day.active {
+      display: block;
+    }
+    
+    .menu-header {
+      display: flex;
+      background-color: #f0f0f0;
+      font-weight: bold;
+      border-bottom: 2px solid #ddd;
+    }
+    
+    .menu-row {
+      display: flex;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .menu-cell {
+      padding: 15px;
+      flex: 1;
+      border-right: 1px solid #eee;
+    }
+    
+    .menu-cell:last-child {
+      border-right: none;
+    }
+    
+    .meal-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #8b0000;
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      padding: 20px;
+      color: #777;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .menu-row, .menu-header {
+        flex-direction: column;
+      }
+      
+      .menu-cell {
+        border-right: none;
+        border-bottom: 1px solid #eee;
+      }
+      
+      .menu-cell:last-child {
+        border-bottom: none;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>GNA UNIVERSITY</h1>
+    <p>North Mess Menu</p>
+  </header>
+  
+  <div class="container">
+    <h2>Weekly Mess Menu</h2>
+    
+    <div class="days-nav">
+      <button class="day-btn active" data-day="monday">Monday</button>
+      <button class="day-btn" data-day="tuesday">Tuesday</button>
+      <button class="day-btn" data-day="wednesday">Wednesday</button>
+      <button class="day-btn" data-day="thursday">Thursday</button>
+      <button class="day-btn" data-day="friday">Friday</button>
+      <button class="day-btn" data-day="saturday">Saturday</button>
+      <button class="day-btn" data-day="sunday">Sunday</button>
+    </div>
+    
+    <div class="menu-container">
+      <!-- Monday Menu -->
+      <div class="menu-day active" id="monday">
+        <div class="menu-header">
+          <div class="menu-cell">Meal</div>
+          <div class="menu-cell">Items</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">BREAKFAST</div>
+          </div>
+          <div class="menu-cell">AALO PARANTHA, PICKLE, CURD & TEA</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">LUNCH</div>
+          </div>
+          <div class="menu-cell">HYDERABADI BIRYANI, KABULI CHANNA, ROTI, RAITA & LACHHA ONION</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">EVENING SNACKS</div>
+          </div>
+          <div class="menu-cell">FINGER FRIES & TEA</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">DINNER</div>
+          </div>
+          <div class="menu-cell">JEERA AALO, RAJMAH, JEERA RICE, ROTI & SALAD/PAPAD</div>
+        </div>
+      </div>
+      
+      <!-- Tuesday Menu -->
+      <div class="menu-day" id="tuesday">
+        <div class="menu-header">
+          <div class="menu-cell">Meal</div>
+          <div class="menu-cell">Items</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">BREAKFAST</div>
+          </div>
+          <div class="menu-cell">BLACKCHANNA+AALO,PURI, PICKLE & TEA</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">LUNCH</div>
+          </div>
+          <div class="menu-cell">MIX VEG, KADHAI PANEER/SHAHI PANEER, RICE, ROTI, ACHAR & SALAD</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">EVENING SNACKS</div>
+          </div>
+          <div class="menu-cell">MACARONI & COFFEE</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">DINNER</div>
+          </div>
+          <div class="menu-cell">AALO GAJAR MATAR, DAL MAKHANI, JEERA RICE, ROTI & SALAD</div>
+        </div>
+      </div>
+      
+      <!-- Wednesday Menu -->
+      <div class="menu-day" id="wednesday">
+        <div class="menu-header">
+          <div class="menu-cell">Meal</div>
+          <div class="menu-cell">Items</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">BREAKFAST</div>
+          </div>
+          <div class="menu-cell">IDLI AND SAMBHAR ALONG WITH CHUTNEY, TEA</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">LUNCH</div>
+          </div>
+          <div class="menu-cell">CHILLY PANNER, ARHAR DAL, RICE, SALAD, ACHAR, PAPAD & ROTI</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">EVENING SNACKS</div>
+          </div>
+          <div class="menu-cell">MAGGI & COFFEE</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">DINNER</div>
+          </div>
+          <div class="menu-cell">SEASONAL VEG, MOONG DAL, RICE, ROTI, ACHAR, SALAD & KHEER</div>
+        </div>
+      </div>
+      
+      <!-- Thursday Menu -->
+      <div class="menu-day" id="thursday">
+        <div class="menu-header">
+          <div class="menu-cell">Meal</div>
+          <div class="menu-cell">Items</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">BREAKFAST</div>
+          </div>
+          <div class="menu-cell">AJWAIN AND METHI PRANTHA & AALO PYAZ KI SABJI, PICKLE, TEA</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">LUNCH</div>
+          </div>
+          <div class="menu-cell">PYAZ PAKODA KADHI, ALOO GOBHI, RICE, ROTI, ACHAR & SALAD</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">EVENING SNACKS</div>
+          </div>
+          <div class="menu-cell">MIX PAKODA, MINT SAUCE & TEA</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">DINNER</div>
+          </div>
+          <div class="menu-cell">MIX VEG, BLACK CHANNA, RICE ROTI SALAD AND ROASTED PAPAD</div>
+        </div>
+      </div>
+      
+      <!-- Friday Menu -->
+      <div class="menu-day" id="friday">
+        <div class="menu-header">
+          <div class="menu-cell">Meal</div>
+          <div class="menu-cell">Items</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">BREAKFAST</div>
+          </div>
+          <div class="menu-cell">MIX PARANTHA, ACHAR, MILK</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">LUNCH</div>
+          </div>
+          <div class="menu-cell">MAH CHANA DAL, BAIGAN KA BHARTA, RICE, ROTI, ACHAR & SALAD</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">EVENING SNACKS</div>
+          </div>
+          <div class="menu-cell">HAKKA NOODLES, MASALA SHIKANJI/LEMON WATER</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">DINNER</div>
+          </div>
+          <div class="menu-cell">KABULI CHANNA, AALO BEANS, RICE, PAPAD, ACHAAR, ROTI & SALAD</div>
+        </div>
+      </div>
+      
+      <!-- Saturday Menu -->
+      <div class="menu-day" id="saturday">
+        <div class="menu-header">
+          <div class="menu-cell">Meal</div>
+          <div class="menu-cell">Items</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">BREAKFAST</div>
+          </div>
+          <div class="menu-cell">ALOO PYAZ PRANTHA, KASOORI METHI, TEA</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">LUNCH</div>
+          </div>
+          <div class="menu-cell">SCHEZWAN VEGATABLE FRIED RICE & VEG MANCHURIAN</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">EVENING SNACKS</div>
+          </div>
+          <div class="menu-cell">SAMOSA, SAUCE, GREEN CHUTNEY & TEA</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">DINNER</div>
+          </div>
+          <div class="menu-cell">UDAD DAL, PANNER CAPSICUM, JEERA RICE, ROTI, PAPAD, ACHAR, & SALAD</div>
+        </div>
+      </div>
+      
+      <!-- Sunday Menu -->
+      <div class="menu-day" id="sunday">
+        <div class="menu-header">
+          <div class="menu-cell">Meal</div>
+          <div class="menu-cell">Items</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">BREAKFAST</div>
+          </div>
+          <div class="menu-cell">BREAD JAM/BUTTER, SANDWICH EGGS FRUITS & TEA</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">LUNCH</div>
+          </div>
+          <div class="menu-cell">RAJMAH, MIX VEG, ROTI, RICE, SALAD AND DAHI</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">EVENING SNACKS</div>
+          </div>
+          <div class="menu-cell">MATRI & TEA</div>
+        </div>
+        <div class="menu-row">
+          <div class="menu-cell">
+            <div class="meal-title">DINNER</div>
+          </div>
+          <div class="menu-cell">DRY SOYBEAN, YELLOW DAL, ROTI, RICE, SALAD & GULAB JAMUN</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <footer>
+    <p>This Website is Made by Raj Kumar and Parmeet Singh</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const dayButtons = document.querySelectorAll('.day-btn');
+      const menuDays = document.querySelectorAll('.menu-day');
+      
+      dayButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons and menus
+          dayButtons.forEach(btn => btn.classList.remove('active'));
+          menuDays.forEach(menu => menu.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Show corresponding menu
+          const dayId = this.getAttribute('data-day');
+          document.getElementById(dayId).classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
